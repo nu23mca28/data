@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "DSA",
+    "description": "Data Structure and Algorithms using C",
+    "created_at": null,
+    "updated_at": null
+  },
+  {
+    "id": 2,
+    "name": "EJAVA",
+    "description": "Enterprise JAVA",
+    "created_at": null,
+    "updated_at": null
+  },
+  {
+    "id": 3,
+    "name": "Python",
+    "description": "Code snippets in Python",
+    "created_at": null,
+    "updated_at": null
+  }
+]
