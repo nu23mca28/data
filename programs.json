@@ -33,7 +33,7 @@
           "id": 4,
           "title": "Bubble Sort",
           "description": "Bubble Sort description",
-          "content": "",
+          "content": "#include<stdio.h>\nvoid bubble_sort(int a[],int n)\n{\n    int i,j,temp;\n    for(i=0;i<n-1;i++)\n    {\n        for(j=0;j<n-i-1;j++)\n        {\n        if(a[j]>a[j+1])\n        {\n            temp=a[j];\n            a[j]=a[j+1];\n            a[j+1]=temp;\n            }\n        }\n    }\n    for(i=0;i<n;i++)\n    {\n        printf(\"%d\\t\",a[i]);\n    }\n}\nvoid main()\n{\nint n,a[100],i;\nprintf(\"Enter the number of elements in an array\\n\");\nscanf(\"%d\",&n);\nprintf(\"Enter array elements\\n\");\nfor(i=0;i<n;i++)\n    {\n        scanf(\"%d\",&a[i]);\n    }\n    printf(\"Array before sorting\\n\");\n    for(i=0;i<n;i++)\n    {\n        printf(\"%d\\t\",a[i]);\n    }\n    printf(\"\\nArray after sorting\\n\");\n    bubble_sort(a,n);\n}",
           "created_at": null,
           "updated_at": null
         },
@@ -41,7 +41,7 @@
           "id": 5,
           "title": "Insertion Sort",
           "description": "Insertion Sort description",
-          "content": "",
+          "content": "#include<stdio.h>\nvoid insertion_sort(int a[],int n)\n{\n    int i,j,temp;\n    for(i=1;i<n;i++){\n        temp=a[i];\n        for(j=i-1;j>=0 && temp<a[j];j--){\n                a[j+1]=a[j];\n        }\n        a[j+1]=temp;\n    }\n    for(i=0;i<n;i++){\n        printf(\"%d \",a[i]);\n    }\n}\nvoid main()\n{\n    int n,a[100],i;\n    printf(\"Enter the number of elements in an array\\n\");\n    scanf(\"%d\",&n);\n    printf(\"Enter array elements\\n\");\n    for(i=0;i<n;i++)\n    {\n        scanf(\"%d\",&a[i]);\n    }\n    printf(\"Array before sorting\\n\");\n    for(i=0;i<n;i++)\n    {\n        printf(\"%d\\t\\n\",a[i]);\n    }\n    printf(\"Array after sorting\\n\");\n    insertion_sort(a,n);\n}",
           "created_at": null,
           "updated_at": null
         },
@@ -49,7 +49,7 @@
           "id": 6,
           "title": "Selection Sort",
           "description": "Selection Sort description",
-          "content": "",
+          "content": "#include<stdio.h>\nvoid selection_sort(int a[],int n)\n{\n    int i,j,min,temp;\n    for(i=0;i<n-1;i++){\n        min=i;                  //assuming first element is lowest(in each iteration min stores the index of lowest element)\n        for(j=i+1;j<n;j++){\n            if(a[j]<a[min]){\n                min=j;          //storing the index of lowest elemnt\n            }\n        }\n        temp=a[i];              //swapping lowest value 'a[min]' with 'i' index \n        a[i]=a[min];\n        a[min]=temp;\n    }\n    for(i=0;i<n;i++){\n        printf(\"%d \",a[i]);\n    }\n}\nvoid main()\n{\n    int n,a[100],i;\n    printf(\"Enter the number of elements in an array\\n\");\n    scanf(\"%d\",&n);\n    printf(\"Enter array elements\\n\");\n    for(i=0;i<n;i++)\n    {\n        scanf(\"%d\",&a[i]);\n    }\n    printf(\"Array before sorting\\n\");\n    for(i=0;i<n;i++)\n    {\n        printf(\"%d\\t\\n\",a[i]);\n    }\n    printf(\"Array after sorting\\n\");\n    selection_sort(a,n);\n}",
           "created_at": null,
           "updated_at": null
         },
@@ -57,7 +57,7 @@
           "id": 7,
           "title": "Shell Sort",
           "description": "Shell Sort description",
-          "content": "",
+          "content": "#include<stdio.h>\nvoid shell_sort(int a[],int n,int increments[], int numinc)\n{\n    int i,j,k,span,temp;\n    for(k=0;k<numinc;k++)\n    {\n        span=increments[k];\n        for(i=span;i<n;i++){\n            temp=a[i];\n            for(j=i-span;j>=0 && temp<a[j];j=j-span){\n                a[j+span]=a[j];\n            }\n            a[j+span]=temp;\n        }\n    }\n    for(i=0;i<n;i++)\n    {\n        printf(\"%d\\t\",a[i]);\n    }\n}\nvoid main()\n{\n    int n,a[100],i;\n    int increments[] = {5, 3, 1}; \n    int numinc = 3;\n    \n    printf(\"Enter the number of elements in an array\\n\");\n    scanf(\"%d\",&n);\n    printf(\"Enter array elements\\n\");\n    for(i=0;i<n;i++)\n    {\n        scanf(\"%d\",&a[i]);\n    }\n    printf(\"Array before sorting\\n\");\n    for(i=0;i<n;i++)\n    {\n        printf(\"%d\\t\",a[i]);\n    }\n    printf(\"\\nArray after sorting\\n\");\n    shell_sort(a, n, increments, numinc);\n}",
           "created_at": null,
           "updated_at": null
         },
@@ -65,7 +65,7 @@
           "id": 8,
           "title": "Merge Sort",
           "description": "Merge Sort description",
-          "content": "",
+          "content": "#include<stdio.h>\nvoid merge(int A[],int l,int m,int r)\n{\n    int i,j,k;\n    int n1=m-l+1;\n    int n2=r-m;\n    int L[10],R[10];\n    \n    for(i=0;i<n1;i++)\n        L[i]=A[l+i];\n    \n    for(j=0;j<n2;j++)\n        R[j]=A[m+1+j];\n    \n    j=0;i=0;k=l;\n    \n    while(i<n1 && j<n2)\n    {\n        if(L[i]<=R[j])\n        {\n            A[k]=L[i];\n            i++;\n        }\n        else\n        {\n            A[k]=R[j];\n            j++;\n        }\n        k++;\n    } \n    \n    while(i<n1)\n    {\n        A[k]=L[i];\n        i++;\n        k++;\n    }\n    \n    while(j<n2)\n    {\n        A[k]=R[j];\n        j++;\n        k++;\n    }\n}\n\nvoid mergesort(int A[], int l, int r)\n{ \n    if(l<r)\n    {\n        int m=(l+r)/2;\n        mergesort(A,l,m);\n        mergesort(A,m+1,r);\n        merge(A,l,m,r);\n    }\n}\nvoid main()\n{\n    int A[20],i,n;\n    printf(\"Enter the number of elements: \");\n    scanf(\"%d\",&n);\n    printf(\"Enter the elements : \\n\");\n    for(i=0;i<n;i++) \n        scanf(\"%d\",&A[i]);\n    mergesort(A,0,n-1);\n    printf(\"Array after merge sort : \\n\");\n    for(i=0;i<n;i++) \n        printf(\"%d\\n\", A[i]);\n}",
           "created_at": null,
           "updated_at": null
         },
@@ -73,7 +73,7 @@
           "id": 9,
           "title": "Quick Sort",
           "description": "Quick Sort description",
-          "content": "",
+          "content": "#include<stdio.h>\nvoid quick_sort(int a[],int low, int high)\n{\n    int i,j,temp,x;\n    if(low>=high)\n    return;\n    else{\n        x=a[low];\n        i=low+1;\n        j=high;\n        while(i<=j){\n        while(a[i]<x && i<=high){\n            i++;\n        }\n        while(a[j]>x && j>low){\n            j--;\n        }\n        if(i<j){\n            temp=a[i];\n            a[i]=a[j];\n            a[j]=temp;\n            i++;\n            j--;\n        }\n        }\n        a[low]=a[j];\n        a[j]=x;\n        \n        quick_sort(a,low,j-1);\n        quick_sort(a,j+1,high);\n    }\n}\nvoid main()\n{\n    int n,a[100],i;\n    printf(\"Enter the number of elements in an array\\n\");\n    scanf(\"%d\",&n);\n    printf(\"Enter array elements\\n\");\n    for(i=0;i<n;i++)\n    {\n        scanf(\"%d\",&a[i]);\n    }\n    printf(\"Array before sorting\\n\");\n    for(i=0;i<n;i++)\n    {\n        printf(\"%d\\t\\n\",a[i]);\n    }\n    printf(\"Array after sorting\\n\");\n    quick_sort(a,0,n-1);\n    for(i=0;i<n;i++)\n    {\n        printf(\"%d\\t\\n\",a[i]);\n    }\n}",
           "created_at": null,
           "updated_at": null
         }
