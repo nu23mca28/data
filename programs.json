@@ -2,8 +2,8 @@
   "categories": [
     {
       "id": 1,
-      "name": "DSA",
-      "description": "Data Structure and Algorithms using C",
+      "name": "Data Structure and Algorithms",
+      "description": "C programs for Searching and Sorting techniques",
       "programs": [
         {
           "id": 11,
@@ -81,8 +81,8 @@
     },
     {
       "id": 2,
-      "name": "OS",
-      "description": "Operating System",
+      "name": "Operating System",
+      "description": "Process scheduling and Page replacement programs",
       "programs": [
         {
           "id": 21,
