@@ -171,8 +171,8 @@
           "content": "#include <stdio.h>\n#include <stdbool.h>\n\nbool isInMemory(int page, int memory[], int n)\n{\n    for (int i = 0; i < n; i++)\n    {\n        if (memory[i] == page)\n        {\n            return true;\n        }\n    }\n    return false;\n}\n\nvoid displayMemory(int memory[], int n)\n{\n    for (int i = 0; i < n; i++)\n    {\n        printf(\"%d \", memory[i]);\n    }\n    printf(\"\\n\");\n}\n\nint LRU(int pages[], int memory[], int n, int maxFrames, int start)\n{\n    int index = -1, farthest = start + 1;\n\n    for (int i = 0; i < maxFrames; i++)\n    {\n        int j;\n        for (j = start; j >= 0; j--)\n        {\n            if (memory[i] == pages[j])\n            {\n                if (j < farthest)\n                {\n                    farthest = j;\n                    index = i;\n                }\n                break;\n            }\n        }\n        if (j == 0)\n        {\n            return i;\n        }\n    }\n\n    return (index == -1) ? 0 : index;\n}\n\nint main()\n{\n    int n;\n    printf(\"Enter number of pages: \");\n    scanf(\"%d\", &n);\n\n    int pages[n];\n    printf(\"Enter the pages: \");\n    for (int i = 0; i < n; i++)\n    {\n        scanf(\"%d\", &pages[i]);\n    }\n\n    int maxFrames;\n    printf(\"Enter number of frames: \");\n    scanf(\"%d\", &maxFrames);\n\n    int memory[maxFrames];\n    int faults = 0;\n\n    for (int i = 0; i < maxFrames; i++)\n    {\n        memory[i] = -1;\n    }\n\n    for (int i = 0; i < n; i++)\n    {\n        printf(\"Page: %d, Memory: \", pages[i]);\n        if (!isInMemory(pages[i], memory, maxFrames))\n        {\n            faults++;\n            if(maxFrames > i){\n                memory[i] = pages[i];\n            }else{\n                int pos = LRU(pages, memory, n, maxFrames, i - 1);\n                memory[pos] = pages[i];\n            }\n        }\n        displayMemory(memory, maxFrames);\n    }\n\n    printf(\"Total Page Faults: %d\\n\", faults);\n\n    return 0;\n}",
           "created_at": null,
           "updated_at": null
-        },
+        }
       ]
-    },
+    }
   ]
 }
