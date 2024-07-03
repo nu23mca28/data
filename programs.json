@@ -84,7 +84,7 @@
       "id": 2,
       "name": "Operating System",
       "description": "Process scheduling and Page replacement programs",
-      "description": "https://t3.ftcdn.net/jpg/05/51/49/68/360_F_551496879_y5S2z9HwRRpebt3t4BBhBwPGnpagUoTC.jpg",
+      "backgroundImage": "https://t3.ftcdn.net/jpg/05/51/49/68/360_F_551496879_y5S2z9HwRRpebt3t4BBhBwPGnpagUoTC.jpg",
       "programs": [
         {
           "id": 21,
